@@ -1,0 +1,16 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput type="email" placeholder="Email" [(ngModel)]="user.email" name="email" required>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <input matInput type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+  </mat-form-field>
+
+  <button mat-stroked-button (click)="signInWithEmail()">Sign in</button>
+</form>
+
+
+<!--<div>
+  <button mat-stroked-button (click)="signInWithGoogle()">Sign in with Google</button>
+</div>-->
