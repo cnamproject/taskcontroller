@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,14 +13,14 @@ import { HeroService } from '../hero.service';
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
 
-  constructor() { }
+  constructor(private authService: AuthService ){ }
 
   ngOnInit() {
 
   }
 
-  logIn(){
-    console.log("LOG IN OUAIS OUAIS OUAIS");
+  logOut(){
+    this.authService.logout();    console.log("LOG OUT OUAIS OUAIS OUAIS");
   }
 
 }
