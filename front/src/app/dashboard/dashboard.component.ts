@@ -20,7 +20,8 @@ export class DashboardComponent implements OnInit {
   }
 
   logOut(){
-    this.authService.logout();    console.log("LOG OUT OUAIS OUAIS OUAIS");
+    this.authService.logout();
+    console.log("utilisateur déconnecté");
   }
 
 }

@@ -7,7 +7,8 @@
     <input matInput type="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
   </mat-form-field>
 
-  <button mat-stroked-button (click)="signInWithEmail()">Sign in</button>
+  <button mat-stroked-button (click)="signInWithEmail()">Log in</button>
+  <button mat-stroked-button (click)="this.router.navigate(['register'])">Sign in</button>
 </form>
 
 

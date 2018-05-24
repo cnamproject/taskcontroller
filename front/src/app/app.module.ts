@@ -23,7 +23,6 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatDatepickerModule, MatCheckboxModule, MatInputModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './views/register/register.component';
 
 @NgModule({
@@ -31,7 +30,6 @@ import { RegisterComponent } from './views/register/register.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    NavComponent,
     RegisterComponent
   ],
   imports: [

@@ -6,6 +6,8 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+import { User } from '@firebase/auth-types';
 
 @Component({
   selector: 'app-register',
@@ -20,16 +22,17 @@ export class RegisterComponent implements OnInit {
     name: ''
   };
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
 
   //register a new user to the app
   registerWithEmail() {
-    this.authService.registerRegular(this.user.email, this.user.password, this.user.name)
+    this.authService.registerRegular(this.user.email, this.user.password)
       .then((res) => {
         console.log(res);
+        this.userService.writeUserData(res.user.uid, this.user.name);
         this.router.navigate(['dashboard']);
       })
       .catch((err) => console.log('error: ' + err));
