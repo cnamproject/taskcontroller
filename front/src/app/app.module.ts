@@ -13,6 +13,7 @@ import { LoginComponent } from './views/login/login.component';
 
 //Services
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 //Component, module
 import { AppComponent } from './app.component';
@@ -21,15 +22,17 @@ import { FormsModule } from '@angular/forms';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatMenuModule, MatDatepickerModule, MatCheckboxModule, MatInputModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 
-import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { NavComponent } from './nav/nav.component';
+import { RegisterComponent } from './views/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HeroesComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatListModule,
     AppRoutingModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

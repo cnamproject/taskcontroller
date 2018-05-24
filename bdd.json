@@ -1,0 +1,31 @@
+{
+    "Tasks": {
+        "idTask": {
+            "dateAjout": "",
+            "titre": "",
+            "label": "",
+            "isCLosed": "",
+            "temps": "",
+            "dateDebut": "",
+            "dateFin": "",
+            "priorite":"",
+            "owner": ""
+        }
+    },
+    "Users": {
+        "idUser":{
+            "nom":"",
+            "prenom":"",
+            "email":"",
+            "password":"",
+            "tasks":[],
+            "priorites":{
+                "idPriorite":{
+                    "label":"",
+                    "couleur":""
+                }
+            }
+        }
+    }
+    
+}
