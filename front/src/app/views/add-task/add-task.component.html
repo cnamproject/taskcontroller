@@ -1,0 +1,42 @@
+
+<h1>Ajout d'une tâche :</h1>
+<div class="example-container">
+
+
+  <mat-form-field [floatLabel]="options.value.floatLabel">
+    <mat-label>Libellé</mat-label>
+    <input matInput placeholder="Ma tâche">
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="options.value.floatLabel">
+    <mat-label>Description</mat-label>
+    <textarea matInput placeholder="Ma tâche"></textarea>
+  </mat-form-field>
+
+  <mat-form-field [floatLabel]="options.value.floatLabel">
+    <mat-label>Temps estimé (en minute)</mat-label>
+    <input matInput placeholder="60">
+  </mat-form-field>
+
+  <mat-form-field
+      [floatLabel]="options.value.floatLabel">
+    <mat-select>
+      <mat-option>-- None --</mat-option>
+      <mat-option value="option">type 1</mat-option>
+      <mat-option value="option">type 2</mat-option>
+      <mat-option value="option">type 3</mat-option>
+    </mat-select>
+    <mat-label>Type</mat-label>
+  </mat-form-field>
+
+  <mat-form-field
+      [floatLabel]="options.value.floatLabel">
+    <mat-select>
+      <mat-option>-- None --</mat-option>
+      <mat-option value="option">10</mat-option>
+      <mat-option value="option">20</mat-option>
+      <mat-option value="option">30</mat-option>
+    </mat-select>
+    <mat-label>Priorité</mat-label>
+  </mat-form-field>
+</div>
