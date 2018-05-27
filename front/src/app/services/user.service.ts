@@ -34,8 +34,8 @@ export class UserService {
       return this.userDetails.uid;
   }
 
-  writeUserData(name){
-    return this._db.object('users/'+ this.getUserUid()).set({name: name});
+  writeUserData(uid, name){
+    return this._db.object('users/'+ uid).set({name: name});
   }
 
 }

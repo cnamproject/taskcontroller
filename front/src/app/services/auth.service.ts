@@ -17,13 +17,11 @@ export class AuthService {
     return this._firebaseAuth.auth.signInWithEmailAndPassword(email, password)
   }
 
-  registerRegular(email, password, name){
-    this._firebaseAuth.auth.createUserWithEmailAndPassword(email, password);
-    return this._user.writeUserData(name);
+  registerRegular(email, password){
+    return this._firebaseAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 
   logout() {
-    //console.log(this._user.getUserDetails);
     this._firebaseAuth.auth.signOut()
       .then((res) => this.router.navigate(['/']));
   }

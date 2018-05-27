@@ -56,7 +56,6 @@ import { MatAutocompleteModule,
   MatTreeModule} from '@angular/material';
   import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NavComponent } from './nav/nav.component';
 import { RegisterComponent } from './views/register/register.component';
 import { AddTaskComponent } from './views/add-task/add-task.component';
 
