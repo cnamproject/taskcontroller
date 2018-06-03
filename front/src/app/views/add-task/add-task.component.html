@@ -4,13 +4,13 @@
 
 
   <mat-form-field [floatLabel]="options.value.floatLabel">
-    <mat-label>Libellé</mat-label>
-    <input matInput placeholder="Ma tâche">
+    <mat-label>Libellé {{ task.libelle }}</mat-label>
+    <input [(ngModel)]="task.libelle" matInput placeholder="Ma tâche">
   </mat-form-field>
 
   <mat-form-field [floatLabel]="options.value.floatLabel">
     <mat-label>Description</mat-label>
-    <textarea matInput placeholder="Ma tâche"></textarea>
+    <textarea matInput placeholder="Ma tâche a pour but de ..."></textarea>
   </mat-form-field>
 
   <mat-form-field [floatLabel]="options.value.floatLabel">
@@ -32,11 +32,12 @@
   <mat-form-field
       [floatLabel]="options.value.floatLabel">
     <mat-select>
-      <mat-option>-- None --</mat-option>
-      <mat-option value="option">10</mat-option>
-      <mat-option value="option">20</mat-option>
-      <mat-option value="option">30</mat-option>
+      <mat-option *ngFor="let priority of priorities" value="{{priority.id_priorite}}">{{priority.valeur}}</mat-option>
     </mat-select>
     <mat-label>Priorité</mat-label>
   </mat-form-field>
+
+  <button mat-stroked-button (click)="createTask()">Ajouter</button>
+
+  
 </div>
