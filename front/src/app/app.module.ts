@@ -7,6 +7,10 @@ import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+// for AngularFireDatabase
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+// for AngularFireAuth
+import { AngularFireAuth } from 'angularfire2/auth';
 
 //Views
 import { LoginComponent } from './views/login/login.component';
@@ -121,7 +125,9 @@ import { AddTaskComponent } from './views/add-task/add-task.component';
     MatIconModule,
     MatListModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [AuthService, UserService],
   bootstrap: [AppComponent]

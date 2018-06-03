@@ -1,0 +1,463 @@
+[
+  {
+    "name": "Type",
+    "columns": [
+      {
+        "name": "libelle",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "estFixe",
+        "type": {
+          "datatype": "int",
+          "width": 8
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "jourFixe",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "estAlerteMail",
+        "type": {
+          "datatype": "int",
+          "width": 8
+        },
+        "options": {
+          "nullable": false
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": [
+        {
+          "column": "id_type"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Priorite",
+    "columns": [
+      {
+        "name": "libelle",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "couleur",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": [
+        {
+          "column": "id_priorite"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Utilisateur",
+    "columns": [
+      {
+        "name": "nom",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "prenom",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "motDePasse",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "adresseMail",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": [
+        {
+          "column": "id_utilisateur"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Disponibilite",
+    "columns": [
+      {
+        "name": "id_utilisateur",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "jour",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "heureDebutDispo",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "heureDebutPause",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "heureFinPause",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "heureFinDispo",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": [
+        {
+          "column": "id_disponibilite"
+        },
+        {
+          "column": "id_utilisateur"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Tache",
+    "columns": [
+      {
+        "name": "id_utilisateur",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "id_type",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "id_priorite",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "libelle",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "description",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "dateAjout",
+        "type": {
+          "datatype": "date",
+          "fractional": 0
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "TempsEstime",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "estTermine",
+        "type": {
+          "datatype": "int",
+          "width": 8
+        },
+        "options": {
+          "nullable": false
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": [
+        {
+          "column": "id_tache"
+        },
+        {
+          "column": "id_utilisateur"
+        },
+        {
+          "column": "id_type"
+        },
+        {
+          "column": "id_priorite"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Commentaire",
+    "columns": [
+      {
+        "name": "id_tache",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "id_utilisateur",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "id_type",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "id_priorite",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "text",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "date",
+        "type": {
+          "datatype": "date",
+          "fractional": 0
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "estRapportCloture",
+        "type": {
+          "datatype": "int",
+          "width": 8
+        },
+        "options": {
+          "nullable": false
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": [
+        {
+          "column": "id_commentaire"
+        },
+        {
+          "column": "id_tache"
+        },
+        {
+          "column": "id_utilisateur"
+        },
+        {
+          "column": "id_type"
+        },
+        {
+          "column": "id_priorite"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Horaire",
+    "columns": [
+      {
+        "name": "id_tache",
+        "type": {
+          "datatype": "int",
+          "width": 4
+        },
+        "options": {
+          "nullable": false
+        }
+      },
+      {
+        "name": "date",
+        "type": {
+          "datatype": "date",
+          "fractional": 0
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "heureDebut",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      },
+      {
+        "name": "heureFin",
+        "type": {
+          "datatype": "varchar",
+          "length": 255
+        },
+        "options": {
+          "nullable": true
+        }
+      }
+    ],
+    "primaryKey": {
+      "columns": [
+        {
+          "column": "id_horaire"
+        },
+        {
+          "column": "id_tache"
+        }
+      ]
+    }
+  }
+]
