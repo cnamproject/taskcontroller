@@ -64,7 +64,6 @@ import { AddTaskComponent } from './views/add-task/add-task.component';
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    NavComponent,
     RegisterComponent,
     AddTaskComponent
   ],
