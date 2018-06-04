@@ -25,6 +25,10 @@ export class AuthService {
     this._firebaseAuth.auth.signOut()
       .then((res) => this.router.navigate(['/']));
   }
+
+  getAuthObject(){
+    return this._firebaseAuth.auth;
+  }
   
 }
 

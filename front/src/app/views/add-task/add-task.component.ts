@@ -19,23 +19,13 @@ import { User } from '@firebase/auth-types';
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent implements OnInit {
-  objectKeys = Object.keys;
-task: tache = {
-  id_tache: "",
-  libelle: "",
-  description: "",
-  tempsEstime: "",
-  isFixe: false,
-  jourFixe: 0,
-  heureFixeDebut: "",
-  heureFixeFin: "",
-  date: "",
-  heureDebut: "",
-  heureFin: "",
-  idType: "",
-  idPriorite: "",
-  idUtilisateur: ""
-};
+task = new tache({
+  id_tache: "1",
+  libelle: "test",
+  description: "testest",
+  tempsEstime: "10",
+  isFixe:false});
+
   options: FormGroup;
 
   constructor(fb: FormBuilder, private priorityService: PriorityService, private authService: AuthService, private userService: UserService, private taskService: TaskService, private router: Router) {
@@ -56,8 +46,14 @@ task: tache = {
     console.log("all priorities:");console.log(this.priorities);
   }
 
+  displayTask(){
+    console.log(this.task);
+  }
+
   createTask(){
-    this.taskService.writeTaskData(this.userService.getUserUid(), tache);
+    var tmp = this.authService.getAuthObject();
+    
+    this.taskService.writeTaskData(tmp.currentUser.uid, this.task);
   }
 
 }

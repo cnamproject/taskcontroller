@@ -32,10 +32,27 @@
   <mat-form-field
       [floatLabel]="options.value.floatLabel">
     <mat-select>
-      <mat-option *ngFor="let priority of priorities" value="{{priority.id_priorite}}">{{priority.valeur}}</mat-option>
+      <mat-option *ngFor="let priority of priorities | async" value="{{priority.id_priorite}}">{{priority.valeur}}</mat-option>
     </mat-select>
     <mat-label>Priorité</mat-label>
   </mat-form-field>
+
+  <mat-checkbox [(ngModel)]="task.isFixe" (click)="displayTask()">Tâche fixe</mat-checkbox>
+  <div *ngIf="task.isFixe">
+      <mat-radio-group>
+      <mat-label>Jours</mat-label>
+      <mat-radio-button>Lundi</mat-radio-button>
+      <mat-radio-button>Mardi</mat-radio-button>
+      <mat-radio-button>Mercredi</mat-radio-button>
+      <mat-radio-button>Jeudi</mat-radio-button>
+      <mat-radio-button>Vendredi</mat-radio-button>
+      <mat-radio-button>Samedi</mat-radio-button>
+      <mat-radio-button>Dimanche</mat-radio-button>
+      </mat-radio-group>
+
+
+  </div>
+
 
   <button mat-stroked-button (click)="createTask()">Ajouter</button>
 

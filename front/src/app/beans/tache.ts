@@ -14,5 +14,7 @@ export class tache {
   idPriorite: string;
   idUtilisateur: string;
 
-  
+  constructor(init?: Partial<tache>) {
+    Object.assign(this, init);
+}
 }
