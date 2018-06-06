@@ -4,24 +4,23 @@
 
 
   <mat-form-field [floatLabel]="options.value.floatLabel">
-    <mat-label>Libellé {{ task.libelle }}</mat-label>
+    <mat-label>Libellé</mat-label>
     <input [(ngModel)]="task.libelle" matInput placeholder="Ma tâche">
   </mat-form-field>
 
   <mat-form-field [floatLabel]="options.value.floatLabel">
     <mat-label>Description</mat-label>
-    <textarea matInput placeholder="Ma tâche a pour but de ..."></textarea>
+    <textarea [(ngModel)]="task.description" matInput placeholder="Ma tâche a pour but de ..."></textarea>
   </mat-form-field>
 
   <mat-form-field [floatLabel]="options.value.floatLabel">
     <mat-label>Temps estimé (en minute)</mat-label>
-    <input matInput placeholder="60">
+    <input [(ngModel)]="task.tempsEstime" matInput placeholder="60">
   </mat-form-field>
 
   <mat-form-field
       [floatLabel]="options.value.floatLabel">
-    <mat-select>
-      <mat-option>-- None --</mat-option>
+    <mat-select [(ngModel)]="task.id_type">
       <mat-option value="option">type 1</mat-option>
       <mat-option value="option">type 2</mat-option>
       <mat-option value="option">type 3</mat-option>
@@ -31,28 +30,42 @@
 
   <mat-form-field
       [floatLabel]="options.value.floatLabel">
-    <mat-select>
+    <mat-select [(ngModel)]="task.priorite">
       <mat-option *ngFor="let priority of priorities | async" value="{{priority.id_priorite}}">{{priority.valeur}}</mat-option>
     </mat-select>
     <mat-label>Priorité</mat-label>
   </mat-form-field>
 
+  <mat-card>
+      <mat-card-header>
   <mat-checkbox [(ngModel)]="task.isFixe" (click)="displayTask()">Tâche fixe</mat-checkbox>
+  </mat-card-header>
+  <mat-card-content>
   <div *ngIf="task.isFixe">
-      <mat-radio-group>
-      <mat-label>Jours</mat-label>
-      <mat-radio-button>Lundi</mat-radio-button>
-      <mat-radio-button>Mardi</mat-radio-button>
-      <mat-radio-button>Mercredi</mat-radio-button>
-      <mat-radio-button>Jeudi</mat-radio-button>
-      <mat-radio-button>Vendredi</mat-radio-button>
-      <mat-radio-button>Samedi</mat-radio-button>
-      <mat-radio-button>Dimanche</mat-radio-button>
-      </mat-radio-group>
+      
+      <mat-checkbox [(ngModel)]="fixe.lundi">Lundi</mat-checkbox>
+      <mat-checkbox [(ngModel)]="fixe.mardi">Mardi</mat-checkbox>
+      <mat-checkbox [(ngModel)]="fixe.mercredi">Mercredi</mat-checkbox>
+      <mat-checkbox [(ngModel)]="fixe.jeudi">Jeudi</mat-checkbox>
+      <mat-checkbox [(ngModel)]="fixe.vendredi">Vendredi</mat-checkbox>
+      <mat-checkbox [(ngModel)]="fixe.samedi">Samedi</mat-checkbox>
+      <mat-checkbox [(ngModel)]="fixe.dimanche">Dimanche</mat-checkbox>
 
+      <mat-form-field [floatLabel]="options.value.floatLabel">
+        <mat-label>Heure fixe de début</mat-label>
+        <input [(ngModel)]="task.heureFixeDebut" matInput placeholder="09:00">
+      </mat-form-field>
 
+      <mat-form-field [floatLabel]="options.value.floatLabel">
+        <mat-label>Heure fixe de fin</mat-label>
+        <input [(ngModel)]="task.heureFixeFin" matInput placeholder="11:00">
+      </mat-form-field>
+      
   </div>
+</mat-card-content>
+</mat-card>
 
+<mat-checkbox [(ngModel)]="task.isAlerteMail">Recevoir un mail d'alerte</mat-checkbox>
 
   <button mat-stroked-button (click)="createTask()">Ajouter</button>
 
