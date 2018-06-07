@@ -1,7 +1,10 @@
 export class Type {
-    constructor() { }
+
 
     id_type: string;
     libelle: string;
-    estAlerteMail: boolean;
+
+    constructor(init?: Partial<Type>) {
+        Object.assign(this, init);
+    }
 }
