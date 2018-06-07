@@ -8,6 +8,8 @@ import { Observable } from 'rxjs/Observable';
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 
+import { MatSnackBar } from '@angular/material';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +22,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
+  constructor(private snackBar: MatSnackBar, private authService: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -32,7 +34,14 @@ export class LoginComponent implements OnInit {
         console.log(res);
         this.router.navigate(['dashboard']);
       })
-      .catch((err) => console.log('error: ' + err));
+      .catch((err) => {
+        console.log('error: ' + err);
+        this.snackBar.open(err, "Close", {
+          duration: 2000
+        }
+        )
+      });
+
   }
 
 }

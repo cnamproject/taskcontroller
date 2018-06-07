@@ -62,6 +62,7 @@ import { MatAutocompleteModule,
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './views/register/register.component';
 import { AddTaskComponent } from './views/add-task/add-task.component';
+import { UpdateTaskComponent } from './views/update-task/update-task.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { AddTaskComponent } from './views/add-task/add-task.component';
     LoginComponent,
     DashboardComponent,
     RegisterComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    UpdateTaskComponent
   ],
   imports: [
     BrowserModule,

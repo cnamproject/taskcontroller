@@ -2,19 +2,27 @@ import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 
 import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { tache } from '../beans/tache';
+
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  private user: Observable<firebase.User>;
+  tasksRef: AngularFireList<any>;
+  public tasks: Observable<any[]>;
 
-  constructor(private _firebaseAuth: AngularFireAuth, private _db: AngularFireDatabase, private router: Router) {
-    this.user = _firebaseAuth.authState;
+  constructor(private authService: AuthService, private _db: AngularFireDatabase, private router: Router) {
+    this.tasksRef = this._db.list(this.authService.getCurrentUserUid() + '/tasks');
+    this.tasks = this.tasksRef.valueChanges();
+   }
+
+   getTasks(){
+      return this.tasks;
    }
 
    writeTaskData(uid, task : tache){

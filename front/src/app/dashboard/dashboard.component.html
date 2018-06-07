@@ -4,4 +4,5 @@
 
 <nav>
   <a routerLink="/addtask">ajouter une tâche</a>
+  <li *ngFor="let task of tasks | async">{{task.libelle}}</li>
 </nav>
