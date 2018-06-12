@@ -14,11 +14,16 @@ export class DashboardComponent implements OnInit {
   
   constructor(private userService: UserService, private authService: AuthService, private taskService: TaskService){ }
 
-  user = this.userService.getUserDetails();
+  user = this.authService.getCurrentUser();
   tasks = this.taskService.getTasks();
+  selectedTask;
 
   ngOnInit() {
     console.log("Tasks : ");console.log(this.tasks);
+  }
+
+  onSelect(task): void {
+    this.selectedTask = task;
   }
 
   logOut(){

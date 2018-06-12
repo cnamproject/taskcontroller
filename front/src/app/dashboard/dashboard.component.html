@@ -4,5 +4,13 @@
 
 <nav>
   <a routerLink="/addtask">ajouter une tâche</a>
-  <li *ngFor="let task of tasks | async">{{task.libelle}}</li>
+  <li *ngFor="let task of tasks | async"
+  (click)="onSelect(task)">{{task.libelle}}</li>
 </nav>
+
+<div *ngIf="selectedTask">
+
+<h2>{{ selectedTask.libelle | uppercase }} Details</h2>
+<div><span>description: </span>{{selectedTask.description}}</div>
+
+</div>
