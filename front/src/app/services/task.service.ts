@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { tache } from '../beans/tache';
@@ -13,12 +12,9 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class TaskService {
-  tasksRef: AngularFireList<any>;
-  public tasks: Observable<any[]>;
-
+  tasks: Observable<any[]>;
   constructor(private authService: AuthService, private _db: AngularFireDatabase, private router: Router) {
-    this.tasksRef = this._db.list(this.authService.getCurrentUserUid() + '/tasks');
-    this.tasks = this.tasksRef.valueChanges();
+      this.tasks = this._db.list("users/" + this.authService.getCurrentUserUid() + "/tasks").valueChanges();
    }
 
    getTasks(){
