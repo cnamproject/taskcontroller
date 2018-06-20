@@ -74,7 +74,7 @@ task = new tache();
         }cpt++;
           }
           
-    }
+    } 
     
     this.taskService.writeTaskData(tmp.currentUser.uid, this.task);
     this.snackBar.open("Tâche ajoutée", "close", {
