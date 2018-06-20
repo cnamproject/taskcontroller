@@ -3,6 +3,9 @@ import * as $ from 'jquery';
 import * as moment from 'moment';
 import 'fullcalendar';
 import 'jqueryui';
+import { TaskService } from '../../services/task.service';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-calendar',
@@ -12,9 +15,13 @@ import 'jqueryui';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  user = this.userService.getUserDetails();
+  tasks = this.taskService.getTasks();
+
+  constructor(private userService: UserService, private authService: AuthService, private taskService: TaskService) { }
 
   ngOnInit() {
+    console.log("Tasks : ");console.log(this.tasks);
   
     $(document).ready(function() {
 
