@@ -3,6 +3,7 @@
 </div>
 
 <nav>
-  <a routerLink="/addtask">ajouter une tâche</a>
+  <a routerLink="/addtask">ajouter une tâche</a><br>
   <a routerLink="/calendar">planning</a>
+  <li *ngFor="let task of tasks | async">{{task.libelle}}</li>
 </nav>

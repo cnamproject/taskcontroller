@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Router } from "@angular/router";
 
-import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable'; 
-import { UserService } from './user.service'; 
 
 @Injectable()
 export class AuthService {
 
-  constructor(private _firebaseAuth: AngularFireAuth, private _db: AngularFireDatabase, private _user: UserService, private router: Router) {
+  constructor(private _firebaseAuth: AngularFireAuth, private router: Router) {
   }
 
   signInRegular(email, password) {
@@ -26,8 +24,25 @@ export class AuthService {
       .then((res) => this.router.navigate(['/']));
   }
 
+  isLoggedIn(){
+    if(this._firebaseAuth.auth.currentUser){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  //Getter AUTH SERVICE OBJECTS
   getAuthObject(){
     return this._firebaseAuth.auth;
+  }
+
+  getCurrentUser(){
+    return this._firebaseAuth.auth.currentUser;
+  }
+
+  getCurrentUserUid(){
+    return this._firebaseAuth.auth.currentUser.uid;
   }
   
 }
