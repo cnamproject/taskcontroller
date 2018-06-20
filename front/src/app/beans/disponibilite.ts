@@ -1,11 +1,13 @@
-export class Disponibilite {
-
+export class disponibilite {
+    id_disponibilite: string;
+    jour: string;
     heureDebutDispo: string;
+    heureFinDispo: string;
     heureDebutPause: string;
     heureFinPause: string;
-    heureFinDispo: string;
-
-    constructor(init?: Partial<Disponibilite>) {
-        Object.assign(this, init);
-    }
-}
+    
+  
+    constructor(init?: Partial<disponibilite>) {
+      Object.assign(this, init);
+  }
+  }

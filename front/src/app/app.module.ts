@@ -59,9 +59,10 @@ import { MatAutocompleteModule,
   MatTooltipModule,
   MatTreeModule} from '@angular/material';
   import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { RegisterComponent } from './views/register/register.component';
 import { AddTaskComponent } from './views/add-task/add-task.component';
+import { CalendarComponent } from './views/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { AddTaskComponent } from './views/add-task/add-task.component';
     DashboardComponent,
     RegisterComponent,
     AddTaskComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,

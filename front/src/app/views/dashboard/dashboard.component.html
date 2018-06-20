@@ -4,9 +4,10 @@
 
 <nav>
   <a routerLink="/addtask">ajouter une tâche</a>
+  <a routerLink="/calendar">planning</a>
   <li *ngFor="let task of tasks | async"
   (click)="onSelect(task)">{{task.libelle}}</li>
-</nav>
+
 
 <div *ngIf="selectedTask">
 
@@ -15,3 +16,5 @@
 <div><button mat-stroked-button (click)="goToUpdateTask()">Modifier</button></div>
 
 </div>
+
+</nav>

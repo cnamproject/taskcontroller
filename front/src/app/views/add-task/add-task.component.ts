@@ -71,11 +71,9 @@ export class AddTaskComponent implements OnInit {
           if (cpt < Object.keys(this.fixe).length - 1) {
             this.task.jourFixe += ";";
           }
-        } cpt++;
-      }
-
-    }
-
+          
+    } 
+    
     this.taskService.writeTaskData(tmp.currentUser.uid, this.task);
     this.snackBar.open("Tâche ajoutée", "close", {
       duration: 5000,
