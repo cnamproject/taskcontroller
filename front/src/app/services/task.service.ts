@@ -27,7 +27,7 @@ export class TaskService {
     return user.push(task).then((res) => { console.log(res.key); });
   }
 
-  writeNodeTask(uid){
+  writeNodeTasks(uid){
     var user = this._db.object('users/'+ uid);
     return user.set({tasks:"init"}).then((res) => { console.log("noeud task écrit pour " + uid); });
   }

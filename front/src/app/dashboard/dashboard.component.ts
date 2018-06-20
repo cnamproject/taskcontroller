@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
+import { Router } from '@angular/router';
+
 import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { TaskService } from '../services/task.service';
@@ -12,7 +15,7 @@ import { TaskService } from '../services/task.service';
 
 export class DashboardComponent implements OnInit {
   
-  constructor(private userService: UserService, private authService: AuthService, private taskService: TaskService){ }
+  constructor(private userService: UserService, private authService: AuthService, private taskService: TaskService, private router: Router){ }
 
   user = this.authService.getCurrentUser();
   tasks = this.taskService.getTasks();
@@ -24,6 +27,10 @@ export class DashboardComponent implements OnInit {
 
   onSelect(task): void {
     this.selectedTask = task;
+  }
+
+  goToUpdateTask(){
+    this.router.navigate(['/update-task']);
   }
 
   logOut(){
