@@ -3,7 +3,18 @@
 </div>
 
 <nav>
-  <a routerLink="/addtask">ajouter une tâche</a><br>
+  <a routerLink="/addtask">ajouter une tâche</a>
   <a routerLink="/calendar">planning</a>
-  <li *ngFor="let task of tasks | async">{{task.libelle}}</li>
+  <li *ngFor="let task of tasks | async"
+  (click)="onSelect(task)">{{task.libelle}}</li>
+
+
+<div *ngIf="selectedTask">
+
+<h2>{{ selectedTask.libelle | uppercase }} Details</h2>
+<div><span>description: </span>{{selectedTask.description}}</div>
+<div><button mat-stroked-button (click)="goToUpdateTask()">Modifier</button></div>
+
+</div>
+
 </nav>
