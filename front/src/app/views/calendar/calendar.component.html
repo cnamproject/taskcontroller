@@ -3,8 +3,6 @@
     <div id='external-events'>
       <div id='external-events-listing'>
         <h4>Vos tâches</h4>
-        <div *ngIf="tasks.length <= 0">Pas de tâche non plannifiée</div>
-        <li *ngFor="let task of tasks | async">{{task.libelle}}</li>
         <div class='fc-event' *ngFor="let task of tasks | async">{{task.libelle}}</div>
       </div>
     </div>
@@ -14,3 +12,5 @@
     <div style='clear:both'></div>
 
 </div>
+
+{{initjs()}}

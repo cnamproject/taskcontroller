@@ -1,16 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD:front/src/app/dashboard/dashboard.component.ts
 
 import { Router } from '@angular/router';
 
-import { AuthService } from '../services/auth.service';
-import { UserService } from '../services/user.service';
-import { TaskService } from '../services/task.service';
-=======
 import { AuthService } from '../../services/auth.service';
 import { UserService } from '../../services/user.service';
 import { TaskService } from '../../services/task.service';
->>>>>>> dbc043b3217d52468c4037a1f9325fe3444fefd2:front/src/app/views/dashboard/dashboard.component.ts
 
 @Component({
   selector: 'app-dashboard',

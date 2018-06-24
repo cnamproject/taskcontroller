@@ -11,19 +11,31 @@ import { UserService } from '../../services/user.service';
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None 
 })
 export class CalendarComponent implements OnInit {
-
+ 
   user = this.userService.getUserDetails();
   tasks = this.taskService.getTasks();
 
   constructor(private userService: UserService, private authService: AuthService, private taskService: TaskService) { }
 
   ngOnInit() {
-    console.log("Tasks : ");console.log(this.tasks);
   
+  }
+
+  initjs(){
+    
     $(document).ready(function() {
+
+      /*$('*').each(function(){
+          if($(this).hasClass("fc-event")){
+            console.log("Hey ");
+            console.log(this);
+    
+              $(this).css('color', 'red');
+          }
+      })*/
 
       $('#external-events .fc-event').each(function() {
 
@@ -115,7 +127,6 @@ export class CalendarComponent implements OnInit {
 
   });
   }
-
   
 
 }

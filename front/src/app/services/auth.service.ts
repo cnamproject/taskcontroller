@@ -44,6 +44,5 @@ export class AuthService {
   getCurrentUserUid(){
     return this._firebaseAuth.auth.currentUser.uid;
   }
-  
 }
 

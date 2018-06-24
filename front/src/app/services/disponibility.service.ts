@@ -4,7 +4,7 @@ import { Router } from "@angular/router";
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
-import { Disponibilite } from '../beans/disponibilite';
+import { disponibilite } from '../beans/disponibilite';
 
 import { AuthService } from './auth.service';
 
@@ -23,7 +23,7 @@ export class DisponibilityService {
     return this.disponibilities;
   }
 
-  writeDisponibilityData(disponibility: Disponibilite) {
+  writeDisponibilityData(disponibility: disponibilite) {
     var user = this._db.list('users/' + this.authService.getCurrentUserUid() + '/disponibilities');
     console.log(disponibility);
     return user.push(disponibility).then((res) => { console.log(res.key); });

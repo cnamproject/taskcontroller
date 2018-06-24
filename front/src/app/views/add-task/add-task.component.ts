@@ -70,7 +70,7 @@ export class AddTaskComponent implements OnInit {
           this.task.jourFixe += key;
           if (cpt < Object.keys(this.fixe).length - 1) {
             this.task.jourFixe += ";";
-          }
+          } 
           
     } 
     
@@ -81,3 +81,4 @@ export class AddTaskComponent implements OnInit {
   }
 
 }
+}} 
