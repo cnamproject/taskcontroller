@@ -13,7 +13,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./calendar.component.scss'],
   encapsulation: ViewEncapsulation.None 
 })
-export class CalendarComponent implements OnInit {
+export class CalendarComponent implements OnInit { 
  
   user = this.userService.getUserDetails();
   tasks = this.taskService.getTasks();

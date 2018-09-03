@@ -13,8 +13,8 @@ const routes: Routes = [
   { path: 'addtask', component: AddTaskComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
-];
-
+]; 
+ 
 @NgModule({
   imports: [ RouterModule.forRoot(routes) ],
   exports: [ RouterModule ]

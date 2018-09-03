@@ -10,7 +10,7 @@ describe('DashboardComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent ]
     })
-    .compileComponents();
+    .compileComponents(); 
   }));
 
   beforeEach(() => {
@@ -23,3 +23,4 @@ describe('DashboardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+  

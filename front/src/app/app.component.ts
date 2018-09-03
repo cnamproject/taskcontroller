@@ -42,7 +42,7 @@ export class AppComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
-
+ 
   recss(){
     console.log(this.user);
     let shand = document.getElementsByClassName('sidenav-content') as HTMLCollectionOf<HTMLElement>;
